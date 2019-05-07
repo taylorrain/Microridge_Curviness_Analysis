@@ -28,10 +28,7 @@ from these pixels or lines.
     * If all else fails, I could simply calculate the first and second derivative between points.
 The second derivative itself should be a crude measure of curvature, but I can also use a formula
 such as this (from [this website](http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx)):
-<img src="W6_curvature_formula.png" />  
-
 ![picture](https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_curvature_fomula.png)  
-
 3. We have not yet started learning R, and I would like to write this program in R.
 
 I have also created a flowchart for how the program should work once these issues are resolved:
