@@ -18,22 +18,24 @@ This is how the program analyzes the data.
 ### Planned Program flowchart (week 6 discussion)
 There are a few major problems before I can begin coding, which I have been working on:
 1. The x/y coordinates I have are the boundaries of the ridge, not the points contained by the 
-ridge.
+ridge. For example, the data points of the ridges for one cell are plotted below.
 <img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Dicussion_whole_cell_example.png" width="50%" height="50%">
+    
     * One idea to solve this is to simly take the average between each pair of points 
-(example below). However, this is a bit crude.
+(example below - blue is the input data, and orange is the averages). However, this is a bit crude.
 
-![picture](https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Discussion_ex_graph_points.png)
-![picture](https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Discussion_ex_graph_lines.png)
+<img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Discussion_ex_graph_points.png" width="40%" height="50%"> <img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Discussion_ex_graph_lines.png" width="40%" height="50%">
     
     * The goal is to use the existing data to create a new set of points which better represent
 the actual shape of the microridge.
 2. The other issue, once a more representative dataset is determined, is how to calculate curvature
 from these pixels or lines.
-    * If all else fails, I could simply calculate the first and second derivative between points.
+    * If all else fails, I could simply calculate the first and second derivative between points (instantaneous derivatives).
 The second derivative itself should be a crude measure of curvature, but I can also use a formula
 such as this (from [this website](http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx)):
-![picture](https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_curvature_fomula.png)  
+
+<img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_curvature_fomula.png" width="50%">
+
 3. We have not yet started learning R, and I would like to write this program in R.
 
 I have also created a flowchart for how the program should work once these issues are resolved:
