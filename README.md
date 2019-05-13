@@ -19,9 +19,10 @@ This is how the program analyzes the data.
 There are a few major problems before I can begin coding, which I have been working on:
 1. The x/y coordinates I have are the boundaries of the ridge, not the points contained by the 
 ridge.
-![picture](https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Dicussion_whole_cell_example.png)
+![picture](https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Dicussion_whole_cell_example.png | height="20%" width="20%")
     * One idea to solve this is to simly take the average between each pair of points 
 (example below). However, this is a bit crude.
+
 ![picture](https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Discussion_ex_graph_points.png)
 ![picture](https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Discussion_ex_graph_lines.png)
     * The goal is to use the existing data to create a new set of points which better represent
