@@ -32,7 +32,7 @@ the actual shape of the microridge.
 from these pixels or lines.
 * If all else fails, I could simply calculate the first and second derivative between points (instantaneous derivatives).
 The second derivative itself should be a crude measure of curvature, but I can also use a formula
-such as this (from [this website](http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx)):
+such as this (from [this website](http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx)). This value for each point of the ridge would most likely be added and divided by ridge length:
 
 <img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_curvature_fomula.png" width="50%">
 
