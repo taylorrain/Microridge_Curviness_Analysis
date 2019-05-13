@@ -39,8 +39,11 @@ such as this (from [this website](http://tutorial.math.lamar.edu/Classes/CalcIII
 3. We have not yet started learning R, and I would like to write this program in R.
 
 I have also created a flowchart for how the program should work once these issues are resolved:
-1. blah
-2. blah
+1. Get raw data from user, combine cell types with the same manipulation or at the same developmental time point into one table
+2. Transform the raw data into points that better represent microridge shape
+3. Calculate the curvature of each microridge from these points
+4. Output the curvature of each ridge of the cell
+5. If this is achieved with time to spare, also output graphs comparing the microridge curvature across manipulations/development.
 
 ### Program Usage
 
