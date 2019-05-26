@@ -67,7 +67,7 @@ This is a description of how to test that the program is working right.
     * B.S. in Molecular, Cell and Developmental Biology with minor in Biomedical Research, 
         expected June 2019, UCLA
     * contact: hmarkovi@uoregon.edu
-* This program was created as the final project for the class EEB 177, Spring 2019
+* This program was created as the final project for the class EEB 177, Spring 2019, UCLA
 
 ### Acknowledgements
 * Aaron van Loon - miroridge deconvolution program
