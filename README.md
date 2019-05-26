@@ -53,6 +53,8 @@ You need these versions of those things.
 The data needs to look like this.
  * You can use this program (cite Aaron's paper) to convert miroridge images to pixels and 
 then use my program with the output coordinates..
+ * The data must be inputted in csv format.
+ * There cannot be data files with identical names.
 #### Usage Instructions
 This is how to name the input files and how to run the program. These are the outputs that 
 the program will give.
@@ -68,7 +70,8 @@ This is a description of how to test that the program is working right.
 * This program was created as the final project for the class EEB 177, Spring 2019
 
 ### Acknowledgements
-* Aaron van Loon - data
+* Aaron van Loon - miroridge deconvolution program
+* Aaron van Loon and Kaiser Atai - data
 * Dr. Emily Curd and Daniel Chavez - guidance
 
 ### References
