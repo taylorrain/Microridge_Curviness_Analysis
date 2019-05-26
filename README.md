@@ -66,7 +66,7 @@ This is a description of how to test that the program is working right.
     * incoming Biology PhD student at the University of Oregon
     * B.S. in Molecular, Cell and Developmental Biology with minor in Biomedical Research, 
         expected June 2019, UCLA
-    * contact: hannah.markovic@gmail.com
+    * contact: hmarkovi@uoregon.edu
 * This program was created as the final project for the class EEB 177, Spring 2019
 
 ### Acknowledgements
