@@ -76,10 +76,10 @@ This is a description of how to test that the program is working right.
 
 ### References
 * https://stackoverflow.com/questions/9595117/identify-a-linear-feature-on-a-raster-map-and-return-a-linear-shape-object-using
-* https://cran.r-project.org/web/packages/deldir/deldir.pdf
-* https://cran.r-project.org/web/packages/rgeos/rgeos.pdf
-* https://cran.r-project.org/web/packages/sp/sp.pdf
-* https://cran.r-project.org/web/packages/PairViz/PairViz.pdf
-* https://cran.r-project.org/web/packages/TSP/TSP.pdf
+* https://cran.r-project.org/web/packages/deldir/
+* https://cran.r-project.org/web/packages/rgeos/
+* https://cran.r-project.org/web/packages/sp/
+* https://cran.r-project.org/web/packages/PairViz/
+* https://cran.r-project.org/web/packages/TSP/
 * https://rstudio-pubs-static.s3.amazonaws.com/202536_7a122ff56e9f4062b6b012d9921afd80.html
 * http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx
