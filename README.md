@@ -75,5 +75,12 @@ This is a description of how to test that the program is working right.
 * Dr. Emily Curd and Daniel Chavez - guidance
 
 ### References
+* https://stackoverflow.com/questions/9595117/identify-a-linear-feature-on-a-raster-map-and-return-a-linear-shape-object-using
+* https://cran.r-project.org/web/packages/deldir/deldir.pdf
+* https://cran.r-project.org/web/packages/rgeos/rgeos.pdf
+* https://cran.r-project.org/web/packages/sp/sp.pdf
+* https://cran.r-project.org/web/packages/PairViz/PairViz.pdf
+* https://cran.r-project.org/web/packages/TSP/TSP.pdf
+* https://rstudio-pubs-static.s3.amazonaws.com/202536_7a122ff56e9f4062b6b012d9921afd80.html
 * papers
 * math
