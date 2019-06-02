@@ -82,5 +82,4 @@ This is a description of how to test that the program is working right.
 * https://cran.r-project.org/web/packages/PairViz/PairViz.pdf
 * https://cran.r-project.org/web/packages/TSP/TSP.pdf
 * https://rstudio-pubs-static.s3.amazonaws.com/202536_7a122ff56e9f4062b6b012d9921afd80.html
-* papers
-* math
+* http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx
