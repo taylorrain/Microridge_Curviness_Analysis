@@ -41,13 +41,13 @@ It also outputs a more simple measue of curvature obtained by dividing the total
 
 #### Requirements
 You need to install these packages, using the install.packages(*package*) command:  
- * deldir
- * rgoes
- * sp
- * tidyverse
- * TSP
- * PairViz
- * graph
+ * [deldir](https://cran.r-project.org/web/packages/deldir/)
+ * [graph](http://www.bioconductor.org/packages/3.4/bioc/html/graph.html) (For R 3.4)
+ * [PairViz](https://cran.r-project.org/web/packages/PairViz/) 
+ * [rgeos](https://cran.r-project.org/web/packages/rgeos/)
+ * [sp](https://cran.r-project.org/web/packages/sp/)
+ * [tidyverse](https://cran.r-project.org/web/packages/tidyverse/index.html)
+ * [TSP](https://cran.r-project.org/web/packages/TSP/)
 
 I wrote the program using the 3.3.2 version of R.  
 
@@ -93,5 +93,6 @@ You should be able to run this on Hoffman; however, you would need to install ma
 * https://cran.r-project.org/web/packages/sp/
 * https://cran.r-project.org/web/packages/PairViz/
 * https://cran.r-project.org/web/packages/TSP/
+* http://www.bioconductor.org/packages/release/bioc/html/graph.html
 * https://rstudio-pubs-static.s3.amazonaws.com/202536_7a122ff56e9f4062b6b012d9921afd80.html
 * http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx
