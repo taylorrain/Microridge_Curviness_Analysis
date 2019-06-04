@@ -57,7 +57,10 @@ The data must:
  * There cannot be data files with identical names.
  
 #### Usage Instructions
-This is how to name the input files and how to run the program.  
+These scripts can be individually run on your computer, or you can use the master script to run all of them.
+
+All input files must be in the "Files_to_analyze" folder on hoffman; or, change the source of the files in the code, and run it on your computer with these files in a folder of your choosing.
+
 #### Outputs
 The program output a single csv file. The two columns of this file contain the cell ID and number of the ridge within that cell. The third column contains the ridge length. The fourth column contains a simple measure of curvature obtained by dividing the total length of the ridge by the distance between the endpoints of the ridge. The fifth column contains a curvature measure derived by calculating the curvature at each point using the first and second derivates, adding these values for each point of the ridge, and didviding by the length of the ridge.
 
