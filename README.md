@@ -18,36 +18,49 @@ Additional information and images can be found at the [lab website](https://www.
 There are 3 main scripts included in this repository, along with a master script which can run the program in Hoffman2.
 
 #### Concatenate.sh
-This is a bash script which concatenates the input files. It also adds a new column at the beginning of the 
+This is a bash script which concatenates the input csv files, and outputs a single csv with the concatenated information. It also adds a new column at the beginning of the csv storing each file name.
 
-#### dk
+#### Point_Simplifier.rmd
+This is an R script which uses the package deldir to perform a Voronoi tesselation with the input points. It then uses rgeos to find the insersections of the polygons within the pixel boundaries.
 
-#### dke
- 
-2. The other issue, once a more representative dataset is determined, is how to calculate curvature
-from these pixels or lines.
-* If all else fails, I could simply calculate the first and second derivative between points (instantaneous derivatives).
-The second derivative itself should be a crude measure of curvature, but I can also use a formula
-such as this (from [this website](http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx)). This value for each point of the ridge would most likely be added and divided by ridge length:
+The packages TSP and PairViz are used to perform an open Traveling Salesman Problem algorithm to order these points along the ridge, rather than by x value.
+
+It loops this process over every ridge and cell, and saves the information as a csv which is the input for Curvature_Math.rmd
 
 <img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_curvature_fomula.png" width="50%">
+
+#### Curvature_Math.rmd
+
+This script calculates slope and acceleration at each point of the ridge, and then uses the following formula to calculate curvature at each point. It adds these curvature values together, and then divides by the length of the ridge.
+
+<img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_curvature_fomula.png" width="50%">
+
+It also outputs a more simple measue of curvature obtained by dividing the total ridge length by the distance between the endpoints of the ridge.
 
 ### Program Usage
 
 #### Requirements
-You need to install these packages .  
+You need to install these packages, using the install.packages(*package*) command:  
+ * deldir
+ * rgoes
+ * sp
+ * tidyverse
+ * TSP
+ * PairViz
+ * graph
 
 I wrote the program using the 3.3.2 version of R.  
 
-The data needs to be in the form of x and y coordinates of the pixels of the skeletonized ridge.
-
-Additionally:
- * The data must be inputted in csv format.
+The data must:
+ * be in the form of x and y coordinates of the pixels of the skeletonized ridge, and with a column for ridge number.
+ * be inputted in csv format.
  * There cannot be data files with identical names.
+ 
 #### Usage Instructions
 This is how to name the input files and how to run the program.  
 #### Outputs
-These are the outputs that the program will give.
+The program output a single csv file. The two columns of this file contain the cell ID and number of the ridge within that cell. The third column contains the ridge length. The fourth column contains a simple measure of curvature obtained by dividing the total length of the ridge by the distance between the endpoints of the ridge. The fifth column contains a curvature measure derived by calculating the curvature at each point using the first and second derivates, adding these values for each point of the ridge, and didviding by the length of the ridge.
+
 #### Vignette
 You should be able to run this on Hoffman; however, you would need to install many libraries, and it'll take too much time to do during discussion.
 1. To run this test file, you first need to follow the directions for how to run the program, and install the required packages.
