@@ -10,4 +10,4 @@
 10. Yes.
 11. Yes, the instructions were clear.
 12. Yes, I got the same result. 
-13. Maybe summarize the workflow section in a short simple paragraph so it’s easier to follow. 
+13. Maybe summarize the workflow section in a short simple paragraph so it’s easier to follow. As said in a previous point just specify where the “Files_to_analyze" folder comes from. Overall I found this project to be really well-thought out and thorough and I’m struggling to see anything that needs amending. 
