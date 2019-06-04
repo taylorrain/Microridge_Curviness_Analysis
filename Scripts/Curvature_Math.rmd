@@ -1,0 +1,178 @@
+```{r}
+library(tidyverse)
+
+#testing just the math part
+#THIS NEEDS TO BE REPLACED TO TAKE INPUT FROM POINT_SIMPLIFIER
+testing <- data.frame(cell = c(replicate(8, "Aa cell"), replicate(8, "Bb cell")),
+                  ridge = c(1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2),
+                  x = c(0:7, 0:7), y = c(0, 1, 4, 9, 16, 25, 36, 49, 0, 1, 4, 9, 16, 25, 36, 49))
+#slope: (a-b)/(c-d) where a is y2, b is y1, c is x2, d is x1
+#length: (a-b)^2 + (c-d)^2
+
+rows <- nrow(testing)
+length_df <- data.frame(length = c(replicate(rows, 0)))
+slope_df <- data.frame(slope = c(replicate(rows, 0)))
+
+#calculate slope and length at each point of every ridge
+i <- 1
+while (i < rows) {
+    if (testing$cell[i] != testing$cell[i + 1]) {
+        print("This is the next cell")
+        length_df$length[i] <- 0
+        slope_df$slope[i] <- 0
+    }
+    else if (testing$ridge[i] != testing$ridge[i + 1]) {
+        print("This is the next ridge")
+        length_df$length[i] <- 0
+        slope_df$slope[i] <- 0
+    }
+    else {
+        a <- testing$y[i + 1]
+        b <- testing$y[i]
+        c <- testing$x[i + 1]
+        d <- testing$x[i]
+
+        this_length <- sqrt((a - b) ^ 2 + (c - d) ^ 2)
+        length_df$length[i] <- this_length
+
+        this_slope <- ((a - b) / (c - d))
+        slope_df$slope[i] <- this_slope
+        print(paste("Length is", this_length, "and slope is", this_slope))
+    }
+    i <- i + 1
+}
+print("This is the end")
+#This actually isn't needed since now I initialize with zeros but I'll leave just in case.
+#Also, setting things to zero isn't needed in loop but I'll leave in case something goes wrong.
+length_df$length[rows] <- 0
+slope_df$slope[rows] <- 0
+print(typeof(slope_df$slope[rows-1]))
+
+#create new data frame with data, length, and slope of each ridge.
+bindedlength <- bind_cols(testing, length_df, slope_df)
+
+#calculate acceleration
+acceleration_df <- data.frame(av_slope = c(replicate(rows, 0)), acceleration = c(replicate(rows, 0)))
+i <- 1
+print(paste("I is", i, "and rows is", rows))
+#FIX LATER!!!
+#Need to change ifs in this loop to retroactively charging prev to zero at boundaries or something...
+while (i < rows) {
+    if (bindedlength$cell[i] != bindedlength$cell[i + 1] | bindedlength$ridge[i] != bindedlength$ridge[i + 1]) {
+        print("This is the next cell")
+        acceleration_df$acceleration[i] <- 0
+        acceleration_df$acceleration[i - 1] <- 0
+        acceleration_df$av_slope[i] <- 0
+        acceleration_df$av_slope[i - 1] <- 0
+    }
+    else {
+        print("I am in the else")
+        #average slope (to use for curvature, NOT HERE):
+        acceleration_df$av_slope[i] <- (bindedlength$slope[i] + bindedlength$slope[i+1])/2
+        #acceleration:
+        a <- bindedlength$slope[i + 1]
+        b <- bindedlength$slope[i]
+        c <- bindedlength$x[i + 1]
+        d <- bindedlength$x[i]
+        this_accel <- ((a - b) / (c - d))
+        acceleration_df$acceleration[i] <- this_accel
+    }
+    i <- i + 1
+}
+acceleration_df$acceleration[rows] <- 0
+acceleration_df$acceleration[rows - 1] <- 0
+acceleration_df$av_slope[rows] <- 0
+acceleration_df$av_slope[rows - 1] <- 0
+print("This is the end of accel")
+
+#new data frame with previous calc.s and accel
+bindedaccel <- bind_cols(bindedlength, acceleration_df)
+print("this is bindedaccel:")
+bindedaccel
+
+#calculate curvature of each ridge:
+all_curvatures_df <- data.frame(curvature = c(replicate(rows, 0)))
+i <- 1
+while (i < (rows-1)) {
+    #if ridge # or cell # doesn't equal next one or 2 in front then "skip"/set zero since taking sum later
+    if (bindedaccel$cell[i] != bindedaccel$cell[i + 1] | bindedaccel$cell[i] != bindedaccel$cell[i + 2]) {
+        all_curvatures_df$curvature[i] <- 0
+    }
+    else if (bindedaccel$ridge[i] != bindedaccel$ridge[i + 1] | bindedaccel$ridge[i] != bindedaccel$ridge[i + 2]) {
+        all_curvatures_df$curvature[i] <- 0
+    }
+    else {
+        #if not NA, use curvature formula
+        this_curvature <- abs(bindedaccel$acceleration[i]) / ((1 + (bindedaccel$av_slope[i] ^ 2)) ^ 1.5)
+        all_curvatures_df$curvature[i] <- this_curvature
+    }
+    i = i + 1
+}
+
+
+bindedcurves <- bind_cols(bindedaccel, all_curvatures_df)
+bindedcurves
+
+#count the total number of ridges so I can initialize with zeros
+i <- 1
+ridge_counter <- 1
+while (i < rows) {
+    if (bindedaccel$ridge[i] == bindedaccel$ridge[i + 1]) {
+        i = i + 1
+    }
+    else {
+        ridge_counter = ridge_counter + 1
+        i = i + 1
+    }
+}
+
+
+ridge_position_list <- data.frame(position = c(replicate(ridge_counter, 0)))
+#Get positions of the last row of each ridge:
+i <- 1
+counter <- 1
+while (i < rows) {
+    if (bindedaccel$ridge[i] == bindedaccel$ridge[i + 1]) {
+        i = i + 1
+    }
+    else {
+        ridge_position_list$position[counter] <- i
+        counter = counter + 1
+        i = i + 1
+    }
+}
+ridge_position_list$position[ridge_counter] <- rows
+
+print("Ridge positions:")
+ridge_position_list
+
+#LATER FIX, MAKE OUTPUT!!!!!!!
+#initialize the final summary table. This should be the output.
+ridge_curvatures <- data.frame(cell = c(replicate(ridge_counter, 0)), ridge = c(replicate(ridge_counter, 0)), length = c(replicate(ridge_counter, 0)), curvature = c(replicate(ridge_counter, 0)))
+
+last_row <- 1
+for (i in 1:ridge_counter) {
+    #store cell ID and ridge number in first 2 columns
+    ridge_curvatures$cell[i] <- as.vector(bindedcurves$cell[ridge_position_list$position[i]])
+    ridge_curvatures$ridge[i] <- bindedcurves$ridge[ridge_position_list$position[i]]
+
+    this_row <- ridge_position_list$position[i]
+    print(this_row)
+    #add curvatures over the ridge
+    this_sum <- 0
+    ridge_length <- 0
+    for (a in last_row:this_row) {
+        this_sum <- this_sum + bindedcurves$curvature[a]
+        ridge_length <- ridge_length + bindedcurves$length[a]
+    }
+    ridge_curvatures$length[i] <- ridge_length
+    ridge_curvatures$curvature[i] <- this_sum/ridge_length
+    last_row <- this_row + 1
+}
+ridge_curvatures
+#then can make new df w length ridge_counter to store math.
+
+#change for hoffman
+#write.csv(ridge_curvatures, "C:\\Users\\Hannah\\Documents\\School\\EEB 177\\Output.csv", row.names = FALSE)
+
+```
