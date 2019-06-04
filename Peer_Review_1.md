@@ -1,3 +1,5 @@
+#Peer Review
+
 1. Yes
 2. Yes, It measures the “curviness” of the ridges present on the skin cells of fish 
 3. It’s kind of confusing if you don’t have any prior knowledge of what they’re talking about but it sounds like it concatenates the csv files then uses R to plot the points and use that info to calculate the curvature of the ridge. 
