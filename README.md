@@ -27,7 +27,7 @@ The packages TSP and PairViz are used to perform an open Traveling Salesman Prob
 
 It loops this process over every ridge and cell, and saves the information as a csv which is the input for Curvature_Math.rmd
 
-<img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/Vignette/Voronoi%20after%20Viz%20green.gif" width="50%">
+<img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/Vignette/Voronoi%20after%20Viz%20green.gif">
 
 #### Curvature_Math.rmd
 
