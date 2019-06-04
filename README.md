@@ -9,29 +9,21 @@ this data and turns it into a series of coordinates for each ridge. This program
 existing data and returns an excel file containing a measure of curviness for each microridge.
 
 ### Introduction
-#### Microridges
 Microridges are actin protrusions on the surface of skin cells. Our lab is interested in the development and function of these ridges in larval zebrafish. Images of ridges can be taken by labeling actin within the ridges with LifeAct-GFP, and imaging skin cells uing confocal microscopy. Some manipulations during development seem to increase the curviness of these ridges, so there was a need for an objective way to measure the "curviness" of the ridges of a cell. Therefore, I wrote the included scripts which output a meaure of curvature of each ridge, both as a simple function of the total ridge length divided by the distance between the start and end points of each ridge, and as the sum of the mathematical curvature at each point divided by the total length of the ridge.
 
 Additional information and images can be found at the [lab website](https://www.mcdb.ucla.edu/Research/Sagasti/Sagasti_lab_home.html), under Projects/Skin cell morphogenesis.
 
-#### Analysis
+###  Program Workflow
+
 There are 3 main scripts included in this repository, along with a master script which can run the program in Hoffman2.
 
-fjb
+#### Concatenate.sh
+This is a bash script which concatenates the input files. It also adds a new column at the beginning of the 
 
-### Planned Program flowchart (week 6 discussion)
-There are a few major problems before I can begin coding, which I have been working on:
-1. The x/y coordinates I have are the boundaries of the ridge, not the points contained by the 
-ridge. For example, the data points of the ridges for one cell are plotted below.
-<img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Dicussion_whole_cell_example.png" width="50%" height="50%">
-    
-* One idea to solve this is to simly take the average between each pair of points (example below - blue is the input data, and orange is the averages). However, this is a bit crude.
+#### dk
 
-<img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Discussion_ex_graph_points.png" width="40%" height="50%"> <img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_Discussion_ex_graph_lines.png" width="40%" height="50%">
-    
-* The goal is to use the existing data to create a new set of points which better represent
-the actual shape of the microridge.
-
+#### dke
+ 
 2. The other issue, once a more representative dataset is determined, is how to calculate curvature
 from these pixels or lines.
 * If all else fails, I could simply calculate the first and second derivative between points (instantaneous derivatives).
@@ -40,27 +32,21 @@ such as this (from [this website](http://tutorial.math.lamar.edu/Classes/CalcIII
 
 <img src="https://github.com/hamarkovic/Microridge_Curviness_Analysis/blob/master/W6_curvature_fomula.png" width="50%">
 
-3. We have not yet started learning R, and I would like to write this program in R.
-
-I have also created a flowchart for how the program should work once these issues are resolved:
-1. Get raw data from user, combine cell types with the same manipulation or at the same developmental time point into one table
-2. Transform the raw data into points that better represent microridge shape
-3. Calculate the curvature of each microridge from these points
-4. Output the curvature of each ridge of the cell
-5. If this is achieved with time to spare, also output graphs comparing the microridge curvature across manipulations/development.
-
 ### Program Usage
 
 #### Requirements
-You need to install these things.  
-You need these versions of those things.  
-The data needs to look like this.
- * You can use this program (cite Aaron's paper) to convert miroridge images to pixels and 
-then use my program with the output coordinates..
+You need to install these packages .  
+
+I wrote the program using the 3.3.2 version of R.  
+
+The data needs to be in the form of x and y coordinates of the pixels of the skeletonized ridge.
+
+Additionally:
  * The data must be inputted in csv format.
  * There cannot be data files with identical names.
 #### Usage Instructions
 This is how to name the input files and how to run the program.  
+#### Outputs
 These are the outputs that the program will give.
 #### Vignette
 You should be able to run this on Hoffman; however, you would need to install many libraries, and it'll take too much time to do during discussion.
