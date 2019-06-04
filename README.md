@@ -58,8 +58,8 @@ then use my program with the output coordinates..
 #### Usage Instructions
 This is how to name the input files and how to run the program. These are the outputs that 
 the program will give.
-#### Test Files
-This is a description of how to test that the program is working right.
+#### Vignette
+My program is pretty complicated and I don't have all of the pieces working yet (almost though). So no vignette.
 
 ### Author
 * Hannah Markovic
