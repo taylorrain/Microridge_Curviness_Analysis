@@ -10,10 +10,14 @@ existing data and returns an excel file containing a measure of curviness for ea
 
 ### Introduction
 #### Microridges
-Background on microridges.  
-Microridge pictures.
+Microridges are actin protrusions on the surface of skin cells. Our lab is interested in the development and function of these ridges in larval zebrafish. Images of ridges can be taken by labeling actin within the ridges with LifeAct-GFP, and imaging skin cells uing confocal microscopy. Some manipulations during development seem to increase the curviness of these ridges, so there was a need for an objective way to measure the "curviness" of the ridges of a cell. Therefore, I wrote the included scripts which output a meaure of curvature of each ridge, both as a simple function of the total ridge length divided by the distance between the start and end points of each ridge, and as the sum of the mathematical curvature at each point divided by the total length of the ridge.
+
+Additional information and images can be found at the [lab website](https://www.mcdb.ucla.edu/Research/Sagasti/Sagasti_lab_home.html), under Projects/Skin cell morphogenesis.
+
 #### Analysis
-This is how the program analyzes the data.
+There are 3 main scripts included in this repository, along with a master script which can run the program in Hoffman2.
+
+fjb
 
 ### Planned Program flowchart (week 6 discussion)
 There are a few major problems before I can begin coding, which I have been working on:
@@ -56,9 +60,10 @@ then use my program with the output coordinates..
  * The data must be inputted in csv format.
  * There cannot be data files with identical names.
 #### Usage Instructions
-This is how to name the input files and how to run the program. These are the outputs that 
-the program will give.
+This is how to name the input files and how to run the program.  
+These are the outputs that the program will give.
 #### Vignette
+You should be able to run this on Hoffman; however, you would need to install many libraries, and it'll take too much time to do during discussion.
 1. To run this test file, you first need to follow the directions for how to run the program, and install the required packages.
 2. Change the input in the file Point_Simplifier.rmd (read.csv command) to be the file "Ridge5_test.csv" in the appropriate location on your computer.
 3. Change the ouput of the file (write.csv command) to be in the apporpiate location on your computer.
