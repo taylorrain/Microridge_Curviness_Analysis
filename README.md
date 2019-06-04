@@ -87,6 +87,8 @@ You should be able to run this on Hoffman; however, you would need to install ma
 * Dr. Emily Curd and Daniel Chavez - guidance
 
 ### References
+* https://rstudio-pubs-static.s3.amazonaws.com/202536_7a122ff56e9f4062b6b012d9921afd80.html
+* http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx
 * https://stackoverflow.com/questions/9595117/identify-a-linear-feature-on-a-raster-map-and-return-a-linear-shape-object-using
 * https://cran.r-project.org/web/packages/deldir/
 * https://cran.r-project.org/web/packages/rgeos/
@@ -94,5 +96,3 @@ You should be able to run this on Hoffman; however, you would need to install ma
 * https://cran.r-project.org/web/packages/PairViz/
 * https://cran.r-project.org/web/packages/TSP/
 * http://www.bioconductor.org/packages/release/bioc/html/graph.html
-* https://rstudio-pubs-static.s3.amazonaws.com/202536_7a122ff56e9f4062b6b012d9921afd80.html
-* http://tutorial.math.lamar.edu/Classes/CalcIII/Curvature.aspx
